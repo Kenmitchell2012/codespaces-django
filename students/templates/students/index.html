@@ -17,7 +17,7 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Student Number</th>
-                                    <td scope="col">Fist Name</td>
+                                    <td scope="col">First Name</td>
                                     <td scope="col">Last Name</td>
                                     <td scope="col">Email</td>
                                     <td scope="col">Field of Study</td>
@@ -35,10 +35,10 @@
                                             <td>{{ student.field_of_study }}</td>
                                             <td>{{ student.gpa }}</td>
                                             <td>
-                                                <button href="{% url 'view_student' student.id %}" class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="myModal{{student.id}}">
-                                                    <i class="fa-lg fa-solid fa-circle-info"></i></button>
+                                                <!-- <button href="{% url 'view_student' student.id %}" class="btn btn-success me-1" type="button" data-bs-toggle="modal" data-bs-target="myModal{{student.id}}">
+                                                    <i class="fa-lg fa-solid fa-circle-info"></i></button> -->
                                                 <!-- Modal Component for view student -->
-                                                <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                <!-- <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -63,7 +63,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
+                                                <a class="btn btn-success me-1" type="button" href="{% url 'view' student.id  %}"><i class="fa-solid fa-user fa-lg"></i></a>
+
                                                 <a class="btn btn-warning me-1" href="{% url 'edit' student.id  %}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete{{student.id}}">
                                                     <i class="fa-solid fa-trash-can fa-lg"></i>
@@ -79,7 +81,7 @@
                                                             </button>
                                                           </div>
                                                           <div class="modal-body">
-                                                            <p>Are you sure you want to selete this student? (Record cannot be recovered once it is deleted!)</p>
+                                                            <p>Are you sure you want to delete this student? (Record cannot be recovered once it is deleted!)</p>
                                                           </div>
                                                           <div class="modal-footer">
                                                             <form action="{% url 'delete' student.id %}" method="post">

@@ -50,6 +50,10 @@ def edit(request, id):
         form = StudentForm(instance=student)
     return render(request,'students/edit.html', {'form': form})
 
+def view(request, id):
+    student = Student.objects.get(pk=id)
+    return render(request,'students/view.html', {'student': student})
+
 def delete(request, id):
     if request.method == 'POST':
         student = Student.objects.get(pk=id)
